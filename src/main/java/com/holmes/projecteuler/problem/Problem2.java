@@ -19,24 +19,36 @@ package com.holmes.projecteuler.problem;
  */
 public class Problem2 implements ProjectEulerProblem<Integer, Integer> {
 
+    /**
+     * @param question The total value limit of the fibonacci sequence,
+     *                 i.e. the first 5 terms of fib is 1, 2, 3, 5, 8, with a total of 19
+     *                 and so a limit of 20 will mean only 5 terms of fib will be used for the calculation.
+     * @return The total value of only even terms. i.e. if a limit of 20 is given, the first 5 terms will be
+     * used (1, 2, 3, 5, 8) with 2 and 8 being the only even values meaning a total even value will result in 10.
+     */
     @Override
     public Integer solve(Integer question) {
-        int sumOfEven = 0;
+        return fib(question);
+    }
 
-        if (question > 0) {
-            for (int i = 0, j = 1; i < question && j < question;) {
-                int newTerm = i + j;
-                System.out.println(newTerm);
+    private Integer fib(Integer limit) {
+        int prev = 1;
+        int now = 2;
+        int evenTotal = 0;
 
-                if (newTerm % 2 == 0) {
-                    sumOfEven += newTerm;
-                }
+        System.out.printf("%d, ", prev);
+        while (now < limit) {
+            System.out.printf("%d, ", now);
 
-                i = j;
-                j = newTerm;
+            if(now % 2 == 0) {
+                evenTotal += now;
             }
+
+            int newNow = prev + now;
+            prev = now;
+            now = newNow;
         }
 
-        return sumOfEven;
+        return evenTotal;
     }
 }

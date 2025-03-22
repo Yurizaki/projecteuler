@@ -18,7 +18,6 @@ package com.holmes.projecteuler.problem;
  */
 public class Problem1 implements ProjectEulerProblem<Integer, Integer> {
 
-
     @Override
     public Integer solve(Integer question) {
         int sum = 0;

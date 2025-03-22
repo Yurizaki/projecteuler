@@ -1,25 +1,35 @@
 package com.holmes.projecteuler.problem;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-class Problem2Test {
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class Problem2Test {
 
     public Problem2 problem;
 
-    @BeforeEach
-    void setup() {
+    @Before
+    public void setup() {
         problem = new Problem2();
     }
 
+    /**
+     * 1, 2, 3, 5, 8, < 10
+     * 2 + 8 = 10.
+     */
     @Test
-    void solve50() {
-        Assertions.assertEquals(44, problem.solve(50));
+    public void solve10() {
+        Assert.assertEquals(10L, (long) problem.solve(10));
     }
 
     @Test
-    void solve4_000_000() {
-        Assertions.assertEquals(4613732, problem.solve(4_000_000));
+    public void solve50() {
+        Assert.assertEquals(44L, (long) problem.solve(50));
+    }
+
+    @Test
+    public void solve4_000_000() {
+        Assert.assertEquals(4613732L, (long) problem.solve(4_000_000));
     }
 }
